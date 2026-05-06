@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>GUIFT — Login</title>
+    <link rel="stylesheet" href="css/forms.css">
+</head>
+<body>
+    <div class="card">
+        <img src="images/logo.png" class="logo" alt="GUIFT">
+        <h1>ENTRAR</h1>
+        <input id="email"  type="email"    placeholder="O TEU E-MAIL" inputmode="email" autocomplete="email">
+        <input id="senha"  type="password" placeholder="A TUA SENHA"  autocomplete="current-password">
+        <button id="btn-login" onclick="fazerLogin()">ENTRAR</button>
+        <button class="btn-sec" onclick="window.location.href='registro.html'">CRIAR CONTA</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/supabase-auth.js"></script>
+    <script>
+        // Redireciona se já logado
+        redirecionarSeLogado();
+        // Processa token do email de confirmação
+        processarTokenEmail();
+    </script>
+</body>
+</html>

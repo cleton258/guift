@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>GUIFT — Registro</title>
+    <link rel="stylesheet" href="css/forms.css">
+</head>
+<body>
+    <div class="card">
+        <img src="images/logo.png" class="logo" alt="GUIFT">
+        <h1>REGISTRO</h1>
+        <input id="nome"      type="text"     placeholder="O TEU NOME (ex: GamerX)" autocomplete="name">
+        <input id="email"     type="email"    placeholder="O TEU E-MAIL"            inputmode="email" autocomplete="email">
+        <input id="senha"     type="password" placeholder="CRIA UMA SENHA (min. 6)" autocomplete="new-password">
+        <input id="confirmar" type="password" placeholder="CONFIRMA A SENHA"        autocomplete="new-password">
+        <button id="btn-registrar" onclick="registrar()">REGISTRAR</button>
+        <button class="btn-sec" onclick="window.location.href='login.html'">JÁ TENHO CONTA</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/supabase-auth.js"></script>
+</body>
+</html>

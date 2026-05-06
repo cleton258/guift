@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Dashboard — GUIFT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-left">
+            <h1>Dashboard — <span id="streamer-name">...</span></h1>
+            <span class="live-badge"><i class="fas fa-circle"></i> AO VIVO</span>
+            <span class="tts-status" id="tts-status" title="TTS ativo em background">
+                <i class="fas fa-volume-up"></i> TTS
+            </span>
+        </div>
+        <div class="header-right">
+            <button class="btn-cashout" id="btn-cashout">
+                <i class="fas fa-money-bill-wave"></i> CASH OUT
+            </button>
+            <button class="btn-logout" id="btn-logout">
+                <i class="fas fa-sign-out-alt"></i> SAIR
+            </button>
+        </div>
+    </header>
+
+    <!-- STATS -->
+    <div class="stats-bar">
+        <div class="stat">
+            <span class="stat-label">Total</span>
+            <span class="stat-value" id="total-donations">0 MT</span>
+        </div>
+        <div class="stat">
+            <span class="stat-label">Doadores</span>
+            <span class="stat-value" id="donor-count">0</span>
+        </div>
+        <div class="stat">
+            <span class="stat-label">Média</span>
+            <span class="stat-value" id="average-donation">0 MT</span>
+        </div>
+    </div>
+
+    <!-- LINK DE DOAÇÃO -->
+    <div class="link-box">
+        <p>O teu link de doação (partilha com os teus viewers):</p>
+        <div class="link-row">
+            <span id="donation-link">a carregar...</span>
+            <button onclick="copiarLink()"><i class="fas fa-copy"></i></button>
+        </div>
+    </div>
+
+    <!-- VOLUME -->
+    <div class="volume-panel">
+        <div class="vol-group">
+            <label><i class="fas fa-microphone"></i> Narrador</label>
+            <input type="range" id="slider-voz" min="0" max="100" value="80">
+            <span id="pct-voz">80%</span>
+        </div>
+        <div class="vol-group">
+            <label><i class="fas fa-bell"></i> Som</label>
+            <input type="range" id="slider-som" min="0" max="100" value="80">
+            <span id="pct-som">80%</span>
+        </div>
+        <div class="voice-group">
+            <label><i class="fas fa-venus"></i> Voz</label>
+            <div class="voice-buttons">
+                <button id="btn-voz-feminina" class="btn-voice active" onclick="mudarVoz('feminina')">
+                    <i class="fas fa-venus"></i> Feminina
+                </button>
+                <button id="btn-voz-masculina" class="btn-voice" onclick="mudarVoz('masculina')">
+                    <i class="fas fa-mars"></i> Masculina
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <main class="main-content">
+        <section class="panel">
+            <div class="panel-header">
+                <h2><i class="fas fa-gift"></i> Doações Recentes</h2>
+                <button class="btn-clear" id="btn-clear">
+                    <i class="fas fa-trash"></i> Limpar
+                </button>
+            </div>
+            <div class="list" id="donations-list">
+                <div class="empty">
+                    <i class="fas fa-inbox"></i>
+                    <p>Nenhuma doação ainda...<br>Partilha o teu link!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <h2><i class="fas fa-comments"></i> Mensagens</h2>
+            </div>
+            <div class="list" id="messages-list">
+                <div class="empty">
+                    <i class="fas fa-comment-slash"></i>
+                    <p>Sem mensagens</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ALERTA FLUTUANTE -->
+    <div class="alerta" id="alerta"></div>
+
+    <!-- Debug painel e botão são criados dinamicamente pelo JavaScript -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/supabase-auth.js"></script>
+    <script src="js/streamer-dashboard.js"></script>
+</body>
+</html>

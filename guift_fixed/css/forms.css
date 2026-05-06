@@ -1,0 +1,89 @@
+@import 'global.css';
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #3a2e2e 0%, #c50000 100%);
+    padding: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 24px;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+
+.logo { width: 90px; height: auto; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3)); }
+
+h1 { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: 2px; }
+
+input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: border-color 0.2s;
+}
+input::placeholder { color: rgba(255,255,255,0.45); }
+input:focus { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.16); }
+
+button {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:not(.btn-sec) {
+    background: rgba(200,0,0,0.85);
+    color: #fff;
+    border: 1px solid rgba(255,80,80,0.4);
+    box-shadow: 0 0 20px rgba(200,0,0,0.3);
+    margin-top: 4px;
+}
+button:not(.btn-sec):hover   { background: rgba(255,0,0,0.95); }
+button:not(.btn-sec):disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-sec {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+.btn-sec:hover { background: rgba(255,255,255,0.13); color: #fff; }
+
+button:active { transform: scale(0.98); }
+
+@media (max-width: 480px) {
+    body { padding: 14px; }
+    .card { padding: 26px 16px; border-radius: 16px; }
+    .logo { width: 75px; }
+    h1 { font-size: 20px; }
+    input { font-size: 16px; padding: 13px 14px; }
+}
